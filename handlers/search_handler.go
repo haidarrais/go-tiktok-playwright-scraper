@@ -57,7 +57,7 @@ func (h *SearchHandler) SearchVideos(c *gin.Context) {
 	}
 
 	// Store the fetched videos in Redis cache
-	err = utils.SetCache(keyword, v, 10*time.Minute) // Set expiration as needed
+	err = utils.SetCache(keyword, v, 12*time.Hour) // Set expiration as needed
 	if err != nil {
 		utils.InternalServerError(c, err)
 		return
